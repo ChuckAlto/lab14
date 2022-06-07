@@ -24,6 +24,9 @@ public class lab14Controller {
     @GetMapping("/blogpage")
     public String getBlogPage() {return "blogpage";}
 
+    @GetMapping("/createblogpage")
+    public String getCreateBlogPage() {return "createblogpage";}
+
     // get route to login
     @GetMapping("/login")
     public String getLogin(){
@@ -39,7 +42,7 @@ public class lab14Controller {
         if ((userFromDB == null) || (!BCrypt.checkpw(password, userFromDB.password))) {
             return new RedirectView("/login");
         }
-        return new RedirectView("/blogpage");
+        return new RedirectView("/createblogpage");
     }
 
     @GetMapping("/signup")
